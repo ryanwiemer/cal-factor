@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import InputMask from 'react-input-mask';
 
 class Calculator extends Component {
+  constructor(){
+    super()
+      this.state = {
+        isigValue : '',
+        bloodValue : ''
+      }
+  }
+  resetValues = () => {
+      this.setState({bloodValue: ''
+    })
+    this.setState({isigValue: ''
+    })
+  }
   render() {
     return (
       <div className="Calculator">
@@ -16,6 +29,8 @@ class Calculator extends Component {
             type="text"
             mask="9.99"
             maskChar=" "
+            value = {this.state.isigValue}
+            onChange={(e) => this.setState({ isigValue: e.target.value })}
           />
         </div>
 
@@ -25,15 +40,17 @@ class Calculator extends Component {
             className="input input--blood"
             name="blood"
             type="text"
-            step="1"
             mask="999"
             maskChar=" "
+            value = {this.state.bloodValue}
+            onChange={(e) => this.setState({ bloodValue: e.target.value })}
           />
         </div>
 
         <button
           className="button button--refresh"
-          name="refresh">
+          name="refresh"
+          onClick={this.resetValues}>
           &#x21bb;
         </button>
 
