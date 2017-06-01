@@ -1,0 +1,45 @@
+/* ------- *
+ * Calculator *
+ * ------- */
+.Calculator {
+  padding: 2em;
+  background: white;
+  border-radius: 2px;
+}
+
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.input {
+  appearance: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $tertiary;
+  background: $secondary;
+  margin: 1em;
+  padding: 1em;
+  color: $base;
+  &::placeholder {
+    color: white;
+  }
+}
+
+.button {
+  font-size: 1em;
+  color: white;
+  background: $base;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  appearance: none;
+  outline: none;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    opacity: .75;
+  }
+}
