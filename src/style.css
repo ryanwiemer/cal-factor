@@ -106,15 +106,20 @@ body {
     color: white; }
 
 .button {
-  font-size: 1em;
-  color: white;
-  background: #334050;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
   appearance: none;
   outline: none;
   border: none; }
   .button:hover {
     cursor: pointer;
     opacity: .75; }
+
+.button--refresh {
+  font-size: 1em;
+  color: white;
+  background: #334050;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em; }
+
+.button--calibrate {
+  margin-left: 2em; }

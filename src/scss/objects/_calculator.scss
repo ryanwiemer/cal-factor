@@ -29,12 +29,6 @@
 }
 
 .button {
-  font-size: 1em;
-  color: white;
-  background: $base;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
   appearance: none;
   outline: none;
   border: none;
@@ -42,4 +36,17 @@
     cursor: pointer;
     opacity: .75;
   }
+}
+
+.button--refresh {
+  font-size: 1em;
+  color: white;
+  background: $base;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.button--calibrate {
+  margin-left: 2em;
 }
