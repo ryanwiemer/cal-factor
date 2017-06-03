@@ -6,40 +6,69 @@ class Calculator extends Component {
       this.state = {
         isigValue : '',
         bloodValue : '',
-        acceptbleCalibration: ''
+        acceptbleCalibration: '',
+        calculatorNotification: ''
       }
   }
 
   resetValues = () => {
-    this.setState({bloodValue: ''})
-    this.setState({isigValue: ''})
-    this.setState({acceptbleCalibration: ''})
+    this.setState({
+      bloodValue: '',
+      isigValue: '',
+      acceptbleCalibration: '',
+      calculatorNotification: ''
+    });
   }
 
   calibrationEquation = (a,b) => {
-    const equationResult = a / b;
-    if (equationResult >=1.5 && equationResult <= 20 ) {
-      this.setState({acceptbleCalibration: 'true'})
-    }
-    else {
-      this.setState({acceptbleCalibration: 'false'})
-    }
-  }
 
-/*
-  displayNotification() {
-    if (this.acceptbleCalibration = 'true') {
-      console.log("Yay!!!!");
+    const equationResult = a / b;
+
+    if (equationResult >= 1.5 && equationResult <= 20 ) {
+      console.log(equationResult);
+      this.setState({
+        acceptbleCalibration: 'true',
+        calculatorNotification: 'notification--good'
+      });
     }
-    else {
-      console.log("Boo!!!");
+
+    if (equationResult > 0 && equationResult < 1.5 ) {
+      console.log(equationResult);
+      this.setState({
+        acceptbleCalibration: 'false',
+        calculatorNotification: 'notification--bad'
+      });
     }
+
+    if (equationResult > 20 ) {
+      console.log(equationResult);
+      this.setState({
+        acceptbleCalibration: 'false',
+        calculatorNotification: 'notification--bad'
+      });
+    }
+
+    if (a.length === 0 ) {
+      console.log("Blood Glucose Reading is missing");
+      this.setState({
+        acceptbleCalibration: 'false',
+        calculatorNotification: 'notification--missing'
+      });
+    }
+
+    if (b.length === 0 ) {
+      console.log("ISIG Value is missing");
+      this.setState({
+        acceptbleCalibration: 'false',
+        calculatorNotification: 'notification--missing'
+      });
+    }
+
   }
-  */
 
   render() {
     return (
-      <div className="Calculator">
+      <div className={'Calculator ' + this.state.calculatorNotification}>
 
         <h1 className="title">ISIG Calculator</h1>
 
@@ -50,7 +79,7 @@ class Calculator extends Component {
             name="blood"
             type="number"
             value = {this.state.bloodValue}
-            onChange={(e) => this.setState({ bloodValue: e.target.value })}
+            onChange={(event) => this.setState({ bloodValue: event.target.value })}
           />
         </div>
 
@@ -61,7 +90,7 @@ class Calculator extends Component {
             name="isig"
             type="number"
             value = {this.state.isigValue}
-            onChange={(e) => this.setState({ isigValue: e.target.value })}
+            onChange={(event) => this.setState({ isigValue: event.target.value })}
           />
         </div>
 

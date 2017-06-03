@@ -50,3 +50,16 @@
 .button--calibrate {
   margin-left: 2em;
 }
+
+//Notifications
+.notification--bad {
+  background: red;
+}
+
+.notification--good {
+  background: green;
+}
+
+.notification--missing {
+  background: yellow;
+}

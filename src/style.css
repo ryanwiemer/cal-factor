@@ -123,3 +123,12 @@ body {
 
 .button--calibrate {
   margin-left: 2em; }
+
+.notification--bad {
+  background: red; }
+
+.notification--good {
+  background: green; }
+
+.notification--missing {
+  background: yellow; }
