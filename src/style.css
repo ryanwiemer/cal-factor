@@ -56,7 +56,7 @@ table {
 /* ------- *
 * Clearfix *
 * ------- */
-.Calculator:after, .controls:after {
+.calculator:after, .button-container:after {
   display: table;
   content: "";
   clear: both; }
@@ -73,9 +73,7 @@ body {
 
 .App {
   height: 100vh;
-  transform-style: preserve-3d;
-  background: #f5f5f5;
-  text-align: center; }
+  background: #f5f5f5; }
 
 /* ------- *
  *  Typography  *
@@ -86,7 +84,12 @@ body {
 /* ------- *
  * Calculator *
  * ------- */
-.Calculator {
+.calculator-container {
+  text-align: center;
+  height: 100vh;
+  transform-style: preserve-3d; }
+
+.calculator {
   padding: 2em;
   display: inline-block;
   margin: 0 auto;
@@ -94,7 +97,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   min-height: 100px; }
-  .Calculator:before {
+  .calculator:before {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -128,25 +131,26 @@ body {
   display: block;
   width: 100%; }
   .input::placeholder {
-    color: gray; }
+    color: gray;
+    text-align: center; }
   @media (min-width: 600px) {
     .input {
       margin: 0 .5em;
       width: auto;
       display: inline-block; } }
 
-.controls {
+.button-container {
   float: left;
   margin: auto;
   width: 100%; }
   @media (min-width: 600px) {
-    .controls {
+    .button-container {
       width: auto; } }
-  .controls .button {
+  .button-container .button {
     width: 100%;
     display: block; }
     @media (min-width: 600px) {
-      .controls .button {
+      .button-container .button {
         width: auto;
         display: inline-block; } }
 
@@ -154,14 +158,14 @@ body {
   appearance: none;
   outline: none;
   border: none;
-  background: none;
-  color: white;
-  border-radius: 2px;
-  padding: 1em; }
+  background: none; }
   .button:hover {
     cursor: pointer; }
 
 .button--reset {
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
   background: #bebebe;
   margin-bottom: 1em; }
   @media (min-width: 600px) {
@@ -169,24 +173,48 @@ body {
       margin: 0 0 0 1em; } }
 
 .button--calculate {
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
   background: #de673d; }
   @media (min-width: 600px) {
     .button--calculate {
       margin-left: 1em; } }
 
-.notification--calibration-rejected:before {
-  background: red; }
-
-.notification--calibration-accepted {
-  background: green; }
-
-.notification--missing-data {
-  background: yellow;
-  /*&:before {
-    content: "";
+.notification {
+  text-align: center; }
+  .notification:before {
+    padding: 1em 0;
     position: fixed;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background: yellow;
-  }*/ }
+    left: 0;
+    right: 0;
+    z-index: 0; }
+
+.notification--calibration-accepted .button--hide-notification,
+.notification--missing-data .button--hide-notification,
+.notification--calibration-rejected .button--hide-notification {
+  display: block; }
+
+.button--hide-notification {
+  font-size: 1em;
+  z-index: 99;
+  position: fixed;
+  right: 1em;
+  top: .75em;
+  z-index: 999;
+  display: none; }
+
+.notification--calibration-accepted:before {
+  content: "Calibration will likely be accepted.";
+  background: green;
+  color: white; }
+
+.notification--missing-data:before {
+  content: "Missing Data. Please check that both values are entered in.";
+  background: yellow; }
+
+.notification--calibration-rejected:before {
+  content: "Calibration will likely be rejected.";
+  background: red;
+  color: white; }

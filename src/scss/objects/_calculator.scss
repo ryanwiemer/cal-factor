@@ -1,7 +1,14 @@
 /* ------- *
  * Calculator *
  * ------- */
-.Calculator {
+
+.calculator-container {
+  text-align: center;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.calculator {
   padding: 2em;
   display: inline-block;
   margin: 0 auto;
@@ -10,11 +17,11 @@
   transform: translateY(-50%);
   min-height: 100px;
   @extend %clearfix;
- &:before {
-   content: "";
-   display: inline-block;
-   vertical-align: middle;
-   height: 100%;
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
  }
 }
 
@@ -32,7 +39,6 @@
 .input-container {
   float: left;
   margin: auto auto 1em auto;
-  //margin-bottom: 1em;
   width: 100%;
   @include bp(medium) {
     width: auto;
@@ -53,6 +59,7 @@
   width: 100%;
   &::placeholder {
     color: gray;
+    text-align: center;
   }
   @include bp(medium) {
     margin: 0 .5em;
@@ -61,12 +68,8 @@
  }
 }
 
-
-
-
-
 //Buttons
-.controls {
+.button-container {
   @extend %clearfix;
   float: left;
   margin: auto;
@@ -89,15 +92,15 @@
   outline: none;
   border: none;
   background: none;
-  color: white;
-  border-radius: 2px;
-  padding: 1em;
   &:hover {
     cursor: pointer;
   }
 }
 
 .button--reset {
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
   background: $tertiary;
   margin-bottom: 1em;
   @include bp(medium) {
@@ -106,6 +109,9 @@
 }
 
 .button--calculate {
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
   background: $highlight;
   @include bp(medium) {
     margin-left: 1em;
@@ -113,24 +119,55 @@
 }
 
 //Notifications
-.notification--calibration-rejected {
+.notification {
+  text-align: center;
   &:before {
-    background: red;
+    padding: 1em 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
   }
 }
 
+.notification--calibration-accepted,
+.notification--missing-data,
+.notification--calibration-rejected {
+  .button--hide-notification {
+    display: block;
+  }
+}
+
+.button--hide-notification {
+  font-size: 1em;
+  z-index: 99;
+  position: fixed;
+  right: 1em;
+  top: .75em;
+  z-index: 999;
+  display: none;
+}
+
 .notification--calibration-accepted {
-  background: green;
+  &:before {
+    content: "Calibration will likely be accepted.";
+    background: green;
+    color: white;
+  }
 }
 
 .notification--missing-data {
-  background: yellow;
-  /*&:before {
-    content: "";
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  &:before {
+    content: "Missing Data. Please check that both values are entered in.";
     background: yellow;
-  }*/
+  }
+}
+
+.notification--calibration-rejected {
+  &:before {
+    content: "Calibration will likely be rejected.";
+    background: red;
+    color: white;
+  }
 }

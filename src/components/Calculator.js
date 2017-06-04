@@ -18,6 +18,12 @@ class Calculator extends Component {
     });
   }
 
+ hideNotification = () => {
+   this.setState({
+     notificationMessage: ''
+   });
+  }
+
   calibrationEquation = (a,b) => {
 
     const equationResult = a / b;
@@ -61,48 +67,57 @@ class Calculator extends Component {
 
   render() {
     return (
-      <div className={'Calculator ' + this.state.notificationMessage}>
-
-        <h1 className="title">ISIG Calculator</h1>
-
-        <div className="input-container">
-          <input
-            className="input input--blood"
-            name="blood"
-            type="number"
-            placeholder="Blood"
-            step="1"
-            value = {this.state.blood}
-            onChange={(event) => this.setState({ blood: event.target.value })}
-          />
-          <input
-            className="input input--isig"
-            name="isig"
-            type="number"
-            placeholder="Isig"
-            step=".1"
-            value = {this.state.isig}
-            onChange={(event) => this.setState({ isig: event.target.value })}
-          />
-        </div>
-
-        <div className="controls">
-          <button
-            className="button button--reset"
-            name="reset"
-            onClick={this.resetValues}>
-            Reset
-          </button>
-
-          <button
-            className="button button--calculate"
-            name="calculate"
-            onClick={()=> this.calibrationEquation(this.state.blood,this.state.isig)}>
-            Calculate
-          </button>
-        </div>
-
+      <section>
+      <div id="notification" className={'notification ' + this.state.notificationMessage}>
+        <button
+          className="button button--hide-notification"
+          onClick={this.hideNotification}
+          >X</button>
       </div>
+      <div className="calculator-container">
+      <div className="calculator">
+
+          <h1 className="title">ISIG Calculator</h1>
+
+          <div className="input-container">
+            <input
+              className="input input--blood"
+              name="blood"
+              type="number"
+              placeholder="Blood"
+              step="1"
+              value = {this.state.blood}
+              onChange={(event) => this.setState({ blood: event.target.value })}
+            />
+            <input
+              className="input input--isig"
+              name="isig"
+              type="number"
+              placeholder="Isig"
+              step=".1"
+              value = {this.state.isig}
+              onChange={(event) => this.setState({ isig: event.target.value })}
+            />
+          </div>
+
+          <div className="button-container">
+            <button
+              className="button button--reset"
+              name="reset"
+              onClick={this.resetValues}>
+              Reset
+            </button>
+
+            <button
+              className="button button--calculate"
+              name="calculate"
+              onClick={()=> this.calibrationEquation(this.state.blood,this.state.isig)}>
+              Calculate
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
     );
   }
 }
