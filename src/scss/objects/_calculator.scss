@@ -3,28 +3,84 @@
  * ------- */
 .Calculator {
   padding: 2em;
-  background: white;
-  border-radius: 2px;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  min-height: 100px;
+  @extend %clearfix;
+ &:before {
+   content: "";
+   display: inline-block;
+   vertical-align: middle;
+   height: 100%;
+ }
 }
 
+//Title
 .title {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 2em;
+  display: none;
+}
+
+
+//Inputs
+.input-container {
+  float: left;
+  margin: auto auto 1em auto;
+  //margin-bottom: 1em;
+  width: 100%;
+  @include bp(medium) {
+    width: auto;
+    margin: auto;
+ }
 }
 
 .input {
   appearance: none;
   outline: none;
   border: none;
-  border-bottom: 1px solid $tertiary;
-  background: $secondary;
-  margin: 1em;
+  border-bottom: 1px solid $base;
+  background: white;
+  margin-bottom: 1em;
   padding: 1em;
   color: $base;
+  display: block;
+  width: 100%;
   &::placeholder {
-    color: white;
+    color: gray;
+  }
+  @include bp(medium) {
+    margin: 0 .5em;
+    width: auto;
+    display: inline-block;
+ }
+}
+
+
+
+
+
+//Buttons
+.controls {
+  @extend %clearfix;
+  float: left;
+  margin: auto;
+  width: 100%;
+  @include bp(medium) {
+    width: auto;
+  }
+  .button {
+    width: 100%;
+    display: block;
+    @include bp(medium) {
+      width: auto;
+      display: inline-block;
+   }
   }
 }
 
@@ -32,34 +88,49 @@
   appearance: none;
   outline: none;
   border: none;
+  background: none;
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
   &:hover {
     cursor: pointer;
-    opacity: .75;
   }
 }
 
-.button--refresh {
-  font-size: 1em;
-  color: white;
-  background: $base;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
+.button--reset {
+  background: $tertiary;
+  margin-bottom: 1em;
+  @include bp(medium) {
+    margin: 0 0 0 1em;
+  }
 }
 
-.button--calibrate {
-  margin-left: 2em;
+.button--calculate {
+  background: $highlight;
+  @include bp(medium) {
+    margin-left: 1em;
+  }
 }
 
 //Notifications
-.notification--bad {
-  background: red;
+.notification--calibration-rejected {
+  &:before {
+    background: red;
+  }
 }
 
-.notification--good {
+.notification--calibration-accepted {
   background: green;
 }
 
-.notification--missing {
+.notification--missing-data {
   background: yellow;
+  /*&:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: yellow;
+  }*/
 }

@@ -56,6 +56,11 @@ table {
 /* ------- *
 * Clearfix *
 * ------- */
+.Calculator:after, .controls:after {
+  display: table;
+  content: "";
+  clear: both; }
+
 /* ------- *
  * Responsive *
  * ------- */
@@ -68,10 +73,9 @@ body {
 
 .App {
   height: 100vh;
-  background: #edeff0;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+  transform-style: preserve-3d;
+  background: #f5f5f5;
+  text-align: center; }
 
 /* ------- *
  *  Typography  *
@@ -84,51 +88,105 @@ body {
  * ------- */
 .Calculator {
   padding: 2em;
-  background: white;
-  border-radius: 2px; }
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  min-height: 100px; }
+  .Calculator:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; }
 
 .title {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  display: none; }
+
+.input-container {
+  float: left;
+  margin: auto auto 1em auto;
+  width: 100%; }
+  @media (min-width: 600px) {
+    .input-container {
+      width: auto;
+      margin: auto; } }
 
 .input {
   appearance: none;
   outline: none;
   border: none;
-  border-bottom: 1px solid #9a9a9a;
-  background: #edeff0;
-  margin: 1em;
+  border-bottom: 1px solid #000000;
+  background: white;
+  margin-bottom: 1em;
   padding: 1em;
-  color: #334050; }
+  color: #000000;
+  display: block;
+  width: 100%; }
   .input::placeholder {
-    color: white; }
+    color: gray; }
+  @media (min-width: 600px) {
+    .input {
+      margin: 0 .5em;
+      width: auto;
+      display: inline-block; } }
+
+.controls {
+  float: left;
+  margin: auto;
+  width: 100%; }
+  @media (min-width: 600px) {
+    .controls {
+      width: auto; } }
+  .controls .button {
+    width: 100%;
+    display: block; }
+    @media (min-width: 600px) {
+      .controls .button {
+        width: auto;
+        display: inline-block; } }
 
 .button {
   appearance: none;
   outline: none;
-  border: none; }
-  .button:hover {
-    cursor: pointer;
-    opacity: .75; }
-
-.button--refresh {
-  font-size: 1em;
+  border: none;
+  background: none;
   color: white;
-  background: #334050;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em; }
+  border-radius: 2px;
+  padding: 1em; }
+  .button:hover {
+    cursor: pointer; }
 
-.button--calibrate {
-  margin-left: 2em; }
+.button--reset {
+  background: #bebebe;
+  margin-bottom: 1em; }
+  @media (min-width: 600px) {
+    .button--reset {
+      margin: 0 0 0 1em; } }
 
-.notification--bad {
+.button--calculate {
+  background: #de673d; }
+  @media (min-width: 600px) {
+    .button--calculate {
+      margin-left: 1em; } }
+
+.notification--calibration-rejected:before {
   background: red; }
 
-.notification--good {
+.notification--calibration-accepted {
   background: green; }
 
-.notification--missing {
-  background: yellow; }
+.notification--missing-data {
+  background: yellow;
+  /*&:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: yellow;
+  }*/ }

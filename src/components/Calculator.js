@@ -4,19 +4,17 @@ class Calculator extends Component {
   constructor() {
     super()
       this.state = {
-        isigValue : '',
-        bloodValue : '',
-        acceptbleCalibration: '',
-        calculatorNotification: ''
+        isig : '',
+        blood : '',
+        notificationMessage: ''
       }
   }
 
   resetValues = () => {
     this.setState({
-      bloodValue: '',
-      isigValue: '',
-      acceptbleCalibration: '',
-      calculatorNotification: ''
+      blood: '',
+      isig: '',
+      notificationMessage: ''
     });
   }
 
@@ -27,40 +25,35 @@ class Calculator extends Component {
     if (equationResult >= 1.5 && equationResult <= 20 ) {
       console.log(equationResult);
       this.setState({
-        acceptbleCalibration: 'true',
-        calculatorNotification: 'notification--good'
+        notificationMessage: 'notification--calibration-accepted'
       });
     }
 
-    if (equationResult > 0 && equationResult < 1.5 ) {
+    if (equationResult < 1.5 ) {
       console.log(equationResult);
       this.setState({
-        acceptbleCalibration: 'false',
-        calculatorNotification: 'notification--bad'
+        notificationMessage: 'notification--calibration-rejected'
       });
     }
 
     if (equationResult > 20 ) {
       console.log(equationResult);
       this.setState({
-        acceptbleCalibration: 'false',
-        calculatorNotification: 'notification--bad'
+        notificationMessage: 'notification--calibration-rejected'
       });
     }
 
     if (a.length === 0 ) {
       console.log("Blood Glucose Reading is missing");
       this.setState({
-        acceptbleCalibration: 'false',
-        calculatorNotification: 'notification--missing'
+        notificationMessage: 'notification--missing-data'
       });
     }
 
     if (b.length === 0 ) {
       console.log("ISIG Value is missing");
       this.setState({
-        acceptbleCalibration: 'false',
-        calculatorNotification: 'notification--missing'
+        notificationMessage: 'notification--missing-data'
       });
     }
 
@@ -68,45 +61,46 @@ class Calculator extends Component {
 
   render() {
     return (
-      <div className={'Calculator ' + this.state.calculatorNotification}>
+      <div className={'Calculator ' + this.state.notificationMessage}>
 
         <h1 className="title">ISIG Calculator</h1>
 
-        <div className="blood">
-          <lablel>Blood Glucose Reading</lablel>
+        <div className="input-container">
           <input
             className="input input--blood"
             name="blood"
             type="number"
-            value = {this.state.bloodValue}
-            onChange={(event) => this.setState({ bloodValue: event.target.value })}
+            placeholder="Blood"
+            step="1"
+            value = {this.state.blood}
+            onChange={(event) => this.setState({ blood: event.target.value })}
           />
-        </div>
-
-        <div className="isig">
-          <lablel>ISIG Value</lablel>
           <input
             className="input input--isig"
             name="isig"
             type="number"
-            value = {this.state.isigValue}
-            onChange={(event) => this.setState({ isigValue: event.target.value })}
+            placeholder="Isig"
+            step=".1"
+            value = {this.state.isig}
+            onChange={(event) => this.setState({ isig: event.target.value })}
           />
         </div>
 
-        <button
-          className="button button--refresh"
-          name="refresh"
-          onClick={this.resetValues}>
-          &#x21bb;
-        </button>
+        <div className="controls">
+          <button
+            className="button button--reset"
+            name="reset"
+            onClick={this.resetValues}>
+            Reset
+          </button>
 
-        <button
-          className="button button--calibrate"
-          name="calibrate"
-          onClick={()=> this.calibrationEquation(this.state.bloodValue,this.state.isigValue)}>
-          Calculate
-        </button>
+          <button
+            className="button button--calculate"
+            name="calculate"
+            onClick={()=> this.calibrationEquation(this.state.blood,this.state.isig)}>
+            Calculate
+          </button>
+        </div>
 
       </div>
     );

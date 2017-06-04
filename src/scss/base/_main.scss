@@ -8,8 +8,7 @@
 
  .App {
   height: 100vh;
+  transform-style: preserve-3d;
   background: $secondary;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
  }
