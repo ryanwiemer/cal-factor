@@ -1,0 +1,79 @@
+/* ------- *
+ * Notifications *
+ * ------- */
+
+//Notification Topbar
+.notification {
+  background: $tertiary;
+  padding: 2em 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  //height: 100px;
+  z-index: 99;
+  text-align: center;
+  transform: translate3d(0, -100%, 0);
+  transition: all .5s;
+  p {
+    //transition: all .5s;
+  }
+}
+
+.notification--hide {
+  transform: translate3d(0, -100%, 0);
+  p {
+    transition-delay: .5s;
+  }
+}
+
+.notification--accepted {
+  transform: translate3d(0, 0, 0);
+  .notification-message--rejected {
+    color: green;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.notification--missing {
+  transform: translate3d(0, 0, 0);
+  .notification-message--missing {
+    color: yellow;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.notification--rejected {
+  transform: translate3d(0, 0, 0);
+  .notification-message--rejected {
+    color: red;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+//Notification Message Paragraph
+.notification-message {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  //bottom: 0;
+  opacity: 0;
+  margin: auto;
+  visibility: hidden;
+}
+
+
+// Hide Notification "X" Button
+.button--hide-notification {
+  font-size: 15px;
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  margin-top: -14px;
+  z-index: 999;
+}

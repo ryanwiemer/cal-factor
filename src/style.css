@@ -110,6 +110,9 @@ body {
   margin-bottom: 2em;
   display: none; }
 
+/* ------- *
+ * Inputs  *
+ * ------- */
 .input-container {
   float: left;
   margin: auto auto 1em auto;
@@ -139,6 +142,9 @@ body {
       width: auto;
       display: inline-block; } }
 
+/* ------- *
+ * Buttons *
+ * ------- */
 .button-container {
   float: left;
   margin: auto;
@@ -181,40 +187,61 @@ body {
     .button--calculate {
       margin-left: 1em; } }
 
+/* ------- *
+ * Notifications *
+ * ------- */
 .notification {
-  text-align: center; }
-  .notification:before {
-    padding: 1em 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 0; }
+  background: #bebebe;
+  padding: 2em 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  text-align: center;
+  transform: translate3d(0, -100%, 0);
+  transition: all .5s; }
 
-.notification--calibration-accepted .button--hide-notification,
-.notification--missing-data .button--hide-notification,
-.notification--calibration-rejected .button--hide-notification {
-  display: block; }
+.notification--hide {
+  transform: translate3d(0, -100%, 0); }
+  .notification--hide p {
+    transition-delay: .5s; }
+
+.notification--accepted {
+  transform: translate3d(0, 0, 0); }
+  .notification--accepted .notification-message--rejected {
+    color: green;
+    opacity: 1;
+    visibility: visible; }
+
+.notification--missing {
+  transform: translate3d(0, 0, 0); }
+  .notification--missing .notification-message--missing {
+    color: yellow;
+    opacity: 1;
+    visibility: visible; }
+
+.notification--rejected {
+  transform: translate3d(0, 0, 0); }
+  .notification--rejected .notification-message--rejected {
+    color: red;
+    opacity: 1;
+    visibility: visible; }
+
+.notification-message {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  margin: auto;
+  visibility: hidden; }
 
 .button--hide-notification {
-  font-size: 1em;
-  z-index: 99;
-  position: fixed;
-  right: 1em;
-  top: .75em;
-  z-index: 999;
-  display: none; }
-
-.notification--calibration-accepted:before {
-  content: "Calibration will likely be accepted.";
-  background: green;
-  color: white; }
-
-.notification--missing-data:before {
-  content: "Missing Data. Please check that both values are entered in.";
-  background: yellow; }
-
-.notification--calibration-rejected:before {
-  content: "Calibration will likely be rejected.";
-  background: red;
-  color: white; }
+  font-size: 15px;
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  margin-top: -14px;
+  z-index: 999; }

@@ -1,0 +1,36 @@
+/* ------- *
+ * Inputs  *
+ * ------- */
+
+
+.input-container {
+  float: left;
+  margin: auto auto 1em auto;
+  width: 100%;
+  @include bp(medium) {
+    width: auto;
+    margin: auto;
+ }
+}
+
+.input {
+  appearance: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $base;
+  background: white;
+  margin-bottom: 1em;
+  padding: 1em;
+  color: $base;
+  display: block;
+  width: 100%;
+  &::placeholder {
+    color: gray;
+    text-align: center;
+  }
+  @include bp(medium) {
+    margin: 0 .5em;
+    width: auto;
+    display: inline-block;
+ }
+}

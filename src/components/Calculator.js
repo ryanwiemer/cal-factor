@@ -6,6 +6,7 @@ class Calculator extends Component {
       this.state = {
         isig : '',
         blood : '',
+        notificationClass: '',
         notificationMessage: ''
       }
   }
@@ -14,12 +15,14 @@ class Calculator extends Component {
     this.setState({
       blood: '',
       isig: '',
+      notificationClass:'notification--hide',
       notificationMessage: ''
     });
   }
 
  hideNotification = () => {
    this.setState({
+     notificationClass: 'notification--hide',
      notificationMessage: ''
    });
   }
@@ -31,35 +34,38 @@ class Calculator extends Component {
     if (equationResult >= 1.5 && equationResult <= 20 ) {
       console.log(equationResult);
       this.setState({
-        notificationMessage: 'notification--calibration-accepted'
+        notificationClass: 'notification--accepted',
+        notificationMessage: 'Calibration will likely be accepted.'
       });
     }
 
     if (equationResult < 1.5 ) {
       console.log(equationResult);
       this.setState({
-        notificationMessage: 'notification--calibration-rejected'
+        notificationClass: 'notification--rejected',
+        notificationMessage: 'Calibration will likely be rejected.'
       });
     }
 
     if (equationResult > 20 ) {
       console.log(equationResult);
       this.setState({
-        notificationMessage: 'notification--calibration-rejected'
+        notificationClass: 'notification--rejected',
+        notificationMessage: 'Calibration will likely be rejected.'
       });
     }
 
     if (a.length === 0 ) {
-      console.log("Blood Glucose Reading is missing");
       this.setState({
-        notificationMessage: 'notification--missing-data'
+        notificationClass: 'notification--missing',
+        notificationMessage: 'Missing Data. Please check that both values are entered in.'
       });
     }
 
     if (b.length === 0 ) {
-      console.log("ISIG Value is missing");
       this.setState({
-        notificationMessage: 'notification--missing-data'
+        notificationClass: 'notification--missing',
+        notificationMessage: 'Missing Data. Please check that both values are entered in.'
       });
     }
 
@@ -68,7 +74,10 @@ class Calculator extends Component {
   render() {
     return (
       <section>
-      <div id="notification" className={'notification ' + this.state.notificationMessage}>
+      <div id="notification" className={'notification ' + this.state.notificationClass}>
+        <p className="notification-message notification-message--accepted">Calibration will likely be accepted.</p>
+        <p className="notification-message notification-message--rejected">Calibration will likely be rejected.</p>
+        <p className="notification-message notification-message--missing">Missing Data. Please check that both values are entered in.</p>
         <button
           className="button button--hide-notification"
           onClick={this.hideNotification}

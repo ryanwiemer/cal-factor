@@ -1,0 +1,52 @@
+/* ------- *
+ * Buttons *
+ * ------- */
+
+.button-container {
+  @extend %clearfix;
+  float: left;
+  margin: auto;
+  width: 100%;
+  @include bp(medium) {
+    width: auto;
+  }
+  .button {
+    width: 100%;
+    display: block;
+    @include bp(medium) {
+      width: auto;
+      display: inline-block;
+   }
+  }
+}
+
+.button {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button--reset {
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
+  background: $tertiary;
+  margin-bottom: 1em;
+  @include bp(medium) {
+    margin: 0 0 0 1em;
+  }
+}
+
+.button--calculate {
+  color: white;
+  border-radius: 2px;
+  padding: 1em;
+  background: $highlight;
+  @include bp(medium) {
+    margin-left: 1em;
+  }
+}
