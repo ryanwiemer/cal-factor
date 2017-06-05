@@ -79,7 +79,7 @@ body {
  *  Typography  *
  * ------- */
 body {
-  font-family: sans-serif; }
+  font-family: arial, sans-serif; }
 
 /* ------- *
  * Calculator *
@@ -103,13 +103,6 @@ body {
     vertical-align: middle;
     height: 100%; }
 
-.title {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 2em;
-  display: none; }
-
 /* ------- *
  * Inputs  *
  * ------- */
@@ -126,11 +119,11 @@ body {
   appearance: none;
   outline: none;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #101010;
   background: white;
   margin-bottom: 1em;
   padding: 1em;
-  color: #000000;
+  color: #101010;
   display: block;
   width: 100%; }
   .input::placeholder {
@@ -164,15 +157,17 @@ body {
   appearance: none;
   outline: none;
   border: none;
-  background: none; }
+  background: none;
+  transition: all .25s; }
   .button:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    opacity: .75; }
 
 .button--reset {
   color: white;
   border-radius: 2px;
   padding: 1em;
-  background: #bebebe;
+  background: #989898;
   margin-bottom: 1em; }
   @media (min-width: 600px) {
     .button--reset {
@@ -182,7 +177,7 @@ body {
   color: white;
   border-radius: 2px;
   padding: 1em;
-  background: #de673d; }
+  background: #101010; }
   @media (min-width: 600px) {
     .button--calculate {
       margin-left: 1em; } }
@@ -191,57 +186,85 @@ body {
  * Notifications *
  * ------- */
 .notification {
-  background: #bebebe;
-  padding: 2em 0;
+  background: white;
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  height: 75px;
   z-index: 99;
   text-align: center;
   transform: translate3d(0, -100%, 0);
-  transition: all .5s; }
+  transition: transform .5s; }
+  @media (min-width: 350px) {
+    .notification {
+      height: 50px; } }
+  .notification p {
+    border-left: 10px solid white; }
 
 .notification--hide {
   transform: translate3d(0, -100%, 0); }
   .notification--hide p {
+    border-color: white;
     transition-delay: .5s; }
 
 .notification--accepted {
   transform: translate3d(0, 0, 0); }
-  .notification--accepted .notification-message--rejected {
-    color: green;
+  .notification--accepted .notification-message--accepted {
+    border-color: #9ecb75;
     opacity: 1;
     visibility: visible; }
 
 .notification--missing {
   transform: translate3d(0, 0, 0); }
   .notification--missing .notification-message--missing {
-    color: yellow;
+    border-color: #ffc852;
     opacity: 1;
     visibility: visible; }
 
 .notification--rejected {
   transform: translate3d(0, 0, 0); }
   .notification--rejected .notification-message--rejected {
-    color: red;
+    border-color: #de673d;
     opacity: 1;
     visibility: visible; }
 
 .notification-message {
   display: inline-block;
   position: absolute;
+  height: 75px;
   top: 0;
   left: 0;
   right: 0;
   opacity: 0;
   margin: auto;
+  line-height: 1.2;
+  padding: 1.1em 2em;
   visibility: hidden; }
+  @media (min-width: 350px) {
+    .notification-message {
+      padding: 1em 2em;
+      height: 50px; } }
 
 .button--hide-notification {
-  font-size: 15px;
+  font-size: 18px;
   position: absolute;
   right: .5em;
   top: 50%;
   margin-top: -14px;
   z-index: 999; }
+  .button--hide-notification:hover {
+    opacity: .75; }
+
+/* ------- *
+ *  Title  *
+ * ------- */
+.title {
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: .5em;
+  color: #bebebe;
+  text-transform: uppercase;
+  text-align: center;
+  display: none; }

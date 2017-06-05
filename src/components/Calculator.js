@@ -75,19 +75,17 @@ class Calculator extends Component {
     return (
       <section>
       <div id="notification" className={'notification ' + this.state.notificationClass}>
-        <p className="notification-message notification-message--accepted">Calibration will likely be accepted.</p>
-        <p className="notification-message notification-message--rejected">Calibration will likely be rejected.</p>
-        <p className="notification-message notification-message--missing">Missing Data. Please check that both values are entered in.</p>
+        <p className="notification-message notification-message--accepted">Calibration will likely be accepted. <span role="img">😎</span></p>
+        <p className="notification-message notification-message--rejected">Calibration will likely be rejected. <span role="img">😞</span></p>
+        <p className="notification-message notification-message--missing">Missing data. Please enter both values.</p>
         <button
           className="button button--hide-notification"
           onClick={this.hideNotification}
-          >X</button>
+          >x</button>
       </div>
       <div className="calculator-container">
       <div className="calculator">
-
-          <h1 className="title">ISIG Calculator</h1>
-
+          <h1 className="title">ISIG</h1>
           <div className="input-container">
             <input
               className="input input--blood"

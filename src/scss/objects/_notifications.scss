@@ -4,33 +4,37 @@
 
 //Notification Topbar
 .notification {
-  background: $tertiary;
-  padding: 2em 0;
+  background: white;
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  //height: 100px;
+  height: 75px;
   z-index: 99;
   text-align: center;
   transform: translate3d(0, -100%, 0);
-  transition: all .5s;
+  transition: transform .5s;
+  @include bp(small) {
+    height: 50px;
+  }
   p {
-    //transition: all .5s;
+    border-left: 10px solid white;
   }
 }
 
 .notification--hide {
   transform: translate3d(0, -100%, 0);
   p {
+    border-color: white;
     transition-delay: .5s;
   }
 }
 
 .notification--accepted {
   transform: translate3d(0, 0, 0);
-  .notification-message--rejected {
-    color: green;
+  .notification-message--accepted {
+    border-color: $accepted;
     opacity: 1;
     visibility: visible;
   }
@@ -39,7 +43,7 @@
 .notification--missing {
   transform: translate3d(0, 0, 0);
   .notification-message--missing {
-    color: yellow;
+    border-color: $missing;
     opacity: 1;
     visibility: visible;
   }
@@ -48,7 +52,7 @@
 .notification--rejected {
   transform: translate3d(0, 0, 0);
   .notification-message--rejected {
-    color: red;
+    border-color: $rejected;
     opacity: 1;
     visibility: visible;
   }
@@ -58,22 +62,31 @@
 .notification-message {
   display: inline-block;
   position: absolute;
+  height: 75px;
   top: 0;
   left: 0;
   right: 0;
-  //bottom: 0;
   opacity: 0;
   margin: auto;
+  line-height: 1.2;
+  padding: 1.1em 2em;
   visibility: hidden;
+  @include bp(small) {
+    padding: 1em 2em;
+    height: 50px;
+  }
 }
 
 
 // Hide Notification "X" Button
 .button--hide-notification {
-  font-size: 15px;
+  font-size: 18px;
   position: absolute;
   right: .5em;
   top: 50%;
   margin-top: -14px;
   z-index: 999;
+  &:hover {
+    opacity: .75;
+  }
 }

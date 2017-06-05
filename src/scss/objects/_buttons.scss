@@ -25,8 +25,10 @@
   outline: none;
   border: none;
   background: none;
+  transition: all .25s;
   &:hover {
     cursor: pointer;
+    opacity: .75;
   }
 }
 
@@ -34,7 +36,7 @@
   color: white;
   border-radius: 2px;
   padding: 1em;
-  background: $tertiary;
+  background: darken($tertiary, 15%);
   margin-bottom: 1em;
   @include bp(medium) {
     margin: 0 0 0 1em;
@@ -45,7 +47,7 @@
   color: white;
   border-radius: 2px;
   padding: 1em;
-  background: $highlight;
+  background: $base;
   @include bp(medium) {
     margin-left: 1em;
   }
