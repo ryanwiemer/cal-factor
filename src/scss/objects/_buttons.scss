@@ -21,15 +21,17 @@
 }
 
 .button {
+  font-size: inherit;
   appearance: none;
   outline: none;
   border: none;
   background: none;
   transition: all .25s;
-  &:hover {
-    cursor: pointer;
-    opacity: .75;
-  }
+}
+
+.no-touchevents .button:hover {
+  cursor: pointer;
+  opacity: .75;
 }
 
 .button--reset {

@@ -5,4 +5,12 @@
 //Font Families
 body {
 	font-family: arial, sans-serif;
+	font-size: 16px;
+	@include bp(medium) {
+		font-size: 12px;
+	}
+}
+
+code {
+	font-family: Courier, 'New Courier', monospace;
 }

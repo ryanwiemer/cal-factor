@@ -79,7 +79,14 @@ body {
  *  Typography  *
  * ------- */
 body {
-  font-family: arial, sans-serif; }
+  font-family: arial, sans-serif;
+  font-size: 16px; }
+  @media (min-width: 600px) {
+    body {
+      font-size: 12px; } }
+
+code {
+  font-family: Courier, 'New Courier', monospace; }
 
 /* ------- *
  * Calculator *
@@ -95,8 +102,7 @@ body {
   margin: 0 auto;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
-  min-height: 100px; }
+  transform: translateY(-50%); }
   .calculator:before {
     content: "";
     display: inline-block;
@@ -115,10 +121,16 @@ body {
       width: auto;
       margin: auto; } }
 
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: inherit; }
+
 .input {
   appearance: none;
   outline: none;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid #101010;
   background: white;
   margin-bottom: 1em;
@@ -154,14 +166,16 @@ body {
         display: inline-block; } }
 
 .button {
+  font-size: inherit;
   appearance: none;
   outline: none;
   border: none;
   background: none;
   transition: all .25s; }
-  .button:hover {
-    cursor: pointer;
-    opacity: .75; }
+
+.no-touchevents .button:hover {
+  cursor: pointer;
+  opacity: .75; }
 
 .button--reset {
   color: white;
@@ -186,6 +200,7 @@ body {
  * Notifications *
  * ------- */
 .notification {
+  font-size: 16px;
   background: white;
   padding: 0;
   position: fixed;
@@ -196,8 +211,9 @@ body {
   z-index: 99;
   text-align: center;
   transform: translate3d(0, -100%, 0);
-  transition: transform .5s; }
-  @media (min-width: 350px) {
+  transition: transform .5s;
+  border-bottom: 1px solid #f5f5f5; }
+  @media (min-width: 470px) {
     .notification {
       height: 50px; } }
   .notification p {
@@ -240,22 +256,39 @@ body {
   opacity: 0;
   margin: auto;
   line-height: 1.2;
-  padding: 1.1em 2em;
+  padding: 1.1em 2.5em;
   visibility: hidden; }
-  @media (min-width: 350px) {
+  @media (min-width: 470px) {
     .notification-message {
       padding: 1em 2em;
       height: 50px; } }
 
+em {
+  font-weight: bold; }
+
+.no-emoji .emoji-icon {
+  display: none; }
+
 .button--hide-notification {
-  font-size: 18px;
+  line-height: 1;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin-top: -9px;
   position: absolute;
-  right: .5em;
   top: 50%;
-  margin-top: -14px;
-  z-index: 999; }
-  .button--hide-notification:hover {
-    opacity: .75; }
+  right: 1em;
+  border-radius: 2px;
+  background: gainsboro; }
+  @media (min-width: 470px) {
+    .button--hide-notification {
+      right: 1.5em; } }
+
+.box {
+  padding-top: 2px;
+  width: 20px;
+  height: 20px; }
 
 /* ------- *
  *  Title  *
@@ -268,3 +301,63 @@ body {
   text-transform: uppercase;
   text-align: center;
   display: none; }
+
+/* ------------ *
+ *  About Page  *
+ * ------------ */
+.button--about {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  text-decoration: underline; }
+  @media (min-width: 600px) {
+    .button--about {
+      font-size: 16px; } }
+
+.about {
+  font-size: 1em;
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 600px; }
+  @media (min-width: 600px) {
+    .about {
+      font-size: 16px; } }
+
+.about h2 {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1em 0 1em 0;
+  font-size: 2em; }
+
+.about h3 {
+  font-weight: bold;
+  margin: 0 0 1em 0; }
+
+.about p {
+  line-height: 1.4;
+  margin-bottom: 2em; }
+
+code {
+  background: #f5f5f5;
+  padding: 1em 2em;
+  display: inline-block;
+  margin-bottom: 2em; }
+
+.about ul {
+  margin: 0 0 2em 0;
+  text-indent: -30px;
+  margin-left: 30px; }
+
+.about li {
+  line-height: 1.2;
+  list-style: disc;
+  list-style-position: inside;
+  margin-bottom: .5em; }
+
+.about a {
+  text-decoration: underline;
+  color: #101010; }
+
+.no-touchevents .about a:hover {
+  opacity: .75; }

@@ -4,6 +4,7 @@
 
 //Notification Topbar
 .notification {
+  font-size: 16px;
   background: white;
   padding: 0;
   position: fixed;
@@ -15,6 +16,7 @@
   text-align: center;
   transform: translate3d(0, -100%, 0);
   transition: transform .5s;
+  border-bottom: 1px solid $secondary;
   @include bp(small) {
     height: 50px;
   }
@@ -69,7 +71,7 @@
   opacity: 0;
   margin: auto;
   line-height: 1.2;
-  padding: 1.1em 2em;
+  padding: 1.1em 2.5em;
   visibility: hidden;
   @include bp(small) {
     padding: 1em 2em;
@@ -77,16 +79,37 @@
   }
 }
 
+//Cal Factor Result Styling
+em {
+  font-weight: bold;
+}
+
+//Emoijs
+.no-emoji .emoji-icon {
+  display: none;
+}
+
 
 // Hide Notification "X" Button
 .button--hide-notification {
-  font-size: 18px;
+  line-height: 1;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin-top: -9px;
   position: absolute;
-  right: .5em;
   top: 50%;
-  margin-top: -14px;
-  z-index: 999;
-  &:hover {
-    opacity: .75;
+  right: 1em;
+  border-radius: 2px;
+  background: darken($secondary, 10%);
+  @include bp(small) {
+    right: 1.5em;
   }
+}
+
+.box {
+  padding-top:  2px;
+  width: 20px;
+  height: 20px;
 }

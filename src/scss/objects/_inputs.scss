@@ -13,10 +13,17 @@
  }
 }
 
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: inherit;
+}
+
 .input {
   appearance: none;
   outline: none;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid $base;
   background: white;
   margin-bottom: 1em;

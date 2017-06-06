@@ -1,0 +1,79 @@
+/* ------------ *
+ *  About Page  *
+ * ------------ */
+
+.button--about {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  text-decoration: underline;
+  @include bp(medium) {
+    font-size: 16px;
+  }
+}
+
+.about {
+  font-size: 1em;
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 600px;
+  @include bp(medium) {
+    font-size: 16px;
+  }
+}
+
+
+//About Page Title
+.about h2 {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1em 0 1em 0;
+  font-size: 2em;
+}
+
+//About Subtitle
+.about h3 {
+  font-weight: bold;
+  margin: 0 0 1em 0
+}
+
+//About Paragraphs
+.about p {
+  line-height: 1.4;
+  margin-bottom: 2em;
+}
+
+//Math Equation Styling
+
+code {
+  background: $secondary;
+  padding: 1em 2em;
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+
+//About unordered list
+.about ul {
+  margin: 0 0 2em 0;
+  text-indent: -30px;
+  margin-left: 30px;
+}
+
+.about li {
+  line-height: 1.2;
+  list-style: disc;
+  list-style-position: inside;
+  margin-bottom: .5em;
+}
+
+//About Links
+.about a {
+  text-decoration: underline;
+  color: $base;
+}
+
+.no-touchevents .about a:hover {
+  opacity: .75;
+}
