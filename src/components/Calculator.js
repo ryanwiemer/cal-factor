@@ -97,7 +97,6 @@ class Calculator extends Component {
       </div>
       <div className="calculator-container">
       <div className="calculator">
-          <h1 className="title">ISIG</h1>
           <div className="input-container">
             <input
               className="input input--blood"

@@ -2,20 +2,10 @@
  *  About Page  *
  * ------------ */
 
-.button--about {
-  position: absolute;
-  bottom: 1.5em;
-  left: 1.5em;
-  text-decoration: underline;
-  @include bp(medium) {
-    font-size: 16px;
-  }
-}
-
 .about {
   font-size: 1em;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 2em 1em;
   max-width: 600px;
   @include bp(medium) {
     font-size: 16px;
@@ -51,20 +41,20 @@ code {
   padding: 1em 2em;
   display: inline-block;
   margin-bottom: 2em;
+  line-height: 1.4;
 }
 
 
 //About unordered list
 .about ul {
   margin: 0 0 2em 0;
-  text-indent: -30px;
-  margin-left: 30px;
+  margin-left: 1em;
 }
 
 .about li {
-  line-height: 1.2;
+  line-height: 1.4;
   list-style: disc;
-  list-style-position: inside;
+  //list-style-position: inside;
   margin-bottom: .5em;
 }
 

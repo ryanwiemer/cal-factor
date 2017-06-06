@@ -1,0 +1,24 @@
+/* ------- *
+ *  Navigation  *
+ * ------- */
+
+.title {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  font-weight: bold;
+  width: 10px;
+  @include bp(medium) {
+    font-size: 16px;
+  }
+}
+
+.button--about {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1.5em;
+  text-decoration: underline;
+  @include bp(medium) {
+    font-size: 16px;
+  }
+}

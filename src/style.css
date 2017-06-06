@@ -97,7 +97,8 @@ code {
   transform-style: preserve-3d; }
 
 .calculator {
-  padding: 2em;
+  border-radius: 2px;
+  padding: 1em;
   display: inline-block;
   margin: 0 auto;
   position: relative;
@@ -291,33 +292,34 @@ em {
   height: 20px; }
 
 /* ------- *
- *  Title  *
+ *  Navigation  *
  * ------- */
 .title {
-  font-weight: bold;
-  font-size: 3em;
-  margin-bottom: .5em;
-  color: #bebebe;
-  text-transform: uppercase;
-  text-align: center;
-  display: none; }
-
-/* ------------ *
- *  About Page  *
- * ------------ */
-.button--about {
   position: absolute;
   bottom: 1.5em;
   left: 1.5em;
+  font-weight: bold;
+  width: 10px; }
+  @media (min-width: 600px) {
+    .title {
+      font-size: 16px; } }
+
+.button--about {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1.5em;
   text-decoration: underline; }
   @media (min-width: 600px) {
     .button--about {
       font-size: 16px; } }
 
+/* ------------ *
+ *  About Page  *
+ * ------------ */
 .about {
   font-size: 1em;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 2em 1em;
   max-width: 600px; }
   @media (min-width: 600px) {
     .about {
@@ -342,17 +344,16 @@ code {
   background: #f5f5f5;
   padding: 1em 2em;
   display: inline-block;
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  line-height: 1.4; }
 
 .about ul {
   margin: 0 0 2em 0;
-  text-indent: -30px;
-  margin-left: 30px; }
+  margin-left: 1em; }
 
 .about li {
-  line-height: 1.2;
+  line-height: 1.4;
   list-style: disc;
-  list-style-position: inside;
   margin-bottom: .5em; }
 
 .about a {
