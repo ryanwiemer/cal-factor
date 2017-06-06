@@ -21,7 +21,7 @@ class About extends Component {
         </button>
         <section id="about" className="about">
           <h2>About</h2>
-          <p>The <em>Cal Factor Calculator</em> is a simple app intended to help Medtronic MiniMed insulin pump users calibrate their CGM sensors. Please note that the medical equipment itself is obviously more sophisticated and takes into account additional variables including your sensor's history. This app will help you calculate your &quot;cal factor&quot; and warn you about the most obvious of errors. To report an issue or request a feature please visit the <a href="https://github.com/ryanwiemer/isig" target="_blank">GitHub repository</a>.</p>
+          <p>The <em>Cal Factor Calculator</em> is a simple app intended to help Medtronic MiniMed insulin pump users calibrate their CGM sensors. Please note that the medical equipment itself is obviously more sophisticated and takes into account additional variables including your sensor's history. This app will help you calculate your &quot;cal factor&quot; and warn you about the most obvious of errors. To report an issue or request a feature please visit the <a href="https://github.com/ryanwiemer/cal-factor" target="_blank">GitHub repository</a>.</p>
           <h3>Calibration Factor Equation</h3>
           <code><em>Cal Factor</em> = (Blood Glucose &divide; Interstitial Signal)</code>
           <h3>Useful Tips</h3>

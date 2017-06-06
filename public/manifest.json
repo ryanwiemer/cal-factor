@@ -1,6 +1,6 @@
 {
-  "short_name": "isig",
-  "name": "ISIG App",
+  "short_name": "cal-factor",
+  "name": "Cal Factor Calculator",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#101010",
+  "background_color": "#f5f5f5"
 }
