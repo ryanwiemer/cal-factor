@@ -1,6 +1,7 @@
 {
   "name": "cal-factor",
   "version": "0.1.0",
+  "homepage": "https://ryanwiemer.github.io/cal-factor",
   "description": "",
   "license": "MIT",
   "repository": {
@@ -17,7 +18,9 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^15.5.4",
@@ -29,6 +32,7 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
+    "gh-pages": "^1.0.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
     "path": "^0.12.7",

@@ -27,7 +27,7 @@ class About extends Component {
           <h3>Useful Tips</h3>
           <ul>
             <li>Blood glucose must be between 40 - 400 or the calibration will be rejected. <a href="https://www.medtronicdiabetes.com/customer-support/sensors-and-transmitters-support/calibration-sensor" target="_blank">(source)</a></li>
-            <li>Cal Factor should be between 3 - 8 or the calibration will likely be rejected. </li>
+            <li>Cal factor should be between 3 - 8 or the calibration will likely be rejected. </li>
             <li>Wait 15 minutes between calibrations.  <a href="https://www.medtronicdiabetes.com/customer-support/sensors-and-transmitters-support/troubleshoot-sensor" target="_blank">(source)</a></li>
             <li>Do not calibrate if your blood glucose is rapidly rising or lowering. <a href="https://www.medtronicdiabetes.com/customer-support/sensors-and-transmitters-support/calibration-sensor" target="_blank">(source)</a></li>
             <li>Your first couple of calibrations are the most important. Make sure the first ones are stable.</li>
