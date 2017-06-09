@@ -9,11 +9,15 @@
 //Base
 @import "base/_main";
 @import "base/_typography";
+@import "base/_titles";
+@import "base/_links";
+@import "base/_paragraphs";
 
 //Objects
 @import "objects/_calculator";
+@import "objects/_about";
 @import "objects/_inputs";
 @import "objects/_buttons";
+@import "objects/_emojis";
 @import "objects/_notifications";
 @import "objects/_navigation";
-@import "objects/_about";

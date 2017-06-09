@@ -1,6 +1,6 @@
-/* ------------ *
- *  About Page  *
- * ------------ */
+/* ------- *
+ *  About  *
+ * ------- */
 
 .about {
   font-size: 1em;
@@ -12,10 +12,8 @@
   }
 }
 
-
 //About Page Title
 .about h2 {
-  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
   margin: 1em 0 1em 0;
@@ -24,26 +22,21 @@
 
 //About Subtitle
 .about h3 {
-  font-weight: bold;
   margin: 0 0 1em 0
 }
 
 //About Paragraphs
 .about p {
-  line-height: 1.4;
   margin-bottom: 2em;
 }
 
 //Math Equation Styling
-
-code {
+.about code {
   background: $secondary;
   padding: 1em 2em;
   display: inline-block;
   margin-bottom: 2em;
-  line-height: 1.4;
 }
-
 
 //About unordered list
 .about ul {
@@ -54,16 +47,5 @@ code {
 .about li {
   line-height: 1.4;
   list-style: disc;
-  //list-style-position: inside;
   margin-bottom: .5em;
-}
-
-//About Links
-.about a {
-  text-decoration: underline;
-  color: $base;
-}
-
-.no-touchevents .about a:hover {
-  opacity: .75;
 }

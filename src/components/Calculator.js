@@ -7,7 +7,6 @@ class Calculator extends Component {
         isig : '',
         blood : '',
         notificationClass: '',
-        notificationMessage: '',
         calFactor: ''
       }
   }
@@ -17,15 +16,13 @@ class Calculator extends Component {
       blood: '',
       isig: '',
       notificationClass:'notification--hide',
-      notificationMessage: '',
       calFactor: ''
     });
   }
 
  hideNotification = () => {
    this.setState({
-     notificationClass: 'notification--hide',
-     notificationMessage: ''
+     notificationClass: 'notification--hide'
    });
   }
 
@@ -38,7 +35,6 @@ class Calculator extends Component {
       console.log(equationResult);
       this.setState({
         notificationClass: 'notification--accepted',
-        notificationMessage: 'Calibration will likely be accepted.',
         calFactor: roundedResult
       });
     }
@@ -47,7 +43,6 @@ class Calculator extends Component {
       console.log(equationResult);
       this.setState({
         notificationClass: 'notification--rejected',
-        notificationMessage: 'Calibration will likely be rejected.',
         calFactor: roundedResult
       });
     }
@@ -56,7 +51,6 @@ class Calculator extends Component {
       console.log(equationResult);
       this.setState({
         notificationClass: 'notification--rejected',
-        notificationMessage: 'Calibration will likely be rejected.',
         calFactor: roundedResult
       });
     }
@@ -64,7 +58,6 @@ class Calculator extends Component {
     if (a.length === 0 ) {
       this.setState({
         notificationClass: 'notification--missing',
-        notificationMessage: 'Missing Data. Please check that both values are entered in.',
         calFactor: ''
       });
     }
@@ -72,7 +65,6 @@ class Calculator extends Component {
     if (b.length === 0 ) {
       this.setState({
         notificationClass: 'notification--missing',
-        notificationMessage: 'Missing Data. Please check that both values are entered in.',
         calFactor: ''
       });
     }
@@ -82,10 +74,10 @@ class Calculator extends Component {
   render() {
     return (
       <section>
-      <div id="notification" className={'notification ' + this.state.notificationClass}>
-        <p className="notification-message notification-message--accepted"><em>Cal Factor = {this.state.calFactor}</em>. Calibration will likely be accepted. <span className="emoji-icon" role="img" aria-label="Happy emoji">😎</span></p>
-        <p className="notification-message notification-message--rejected"><em>Cal Factor = {this.state.calFactor}</em>. Calibration will likely be rejected. <span className="emoji-icon" role="img" aria-label="Sad emoji">😞</span></p>
-        <p className="notification-message notification-message--missing">Missing data. Please be sure to enter both values.</p>
+      <div className={'notification ' + this.state.notificationClass}>
+        <p className="notification__text notification__text--accepted"><em>Cal Factor = {this.state.calFactor}</em>. Calibration will likely be accepted. <span className="emoji-icon" role="img" aria-label="Happy emoji">😎</span></p>
+        <p className="notification__text notification__text--rejected"><em>Cal Factor = {this.state.calFactor}</em>. Calibration will likely be rejected. <span className="emoji-icon" role="img" aria-label="Sad emoji">😞</span></p>
+        <p className="notification__text notification__text--missing">Missing data. Please be sure to enter both values.</p>
         <button
           className="button button--hide-notification"
           onClick={this.hideNotification}

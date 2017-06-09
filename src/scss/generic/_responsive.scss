@@ -1,6 +1,6 @@
-/* ------- *
- * Responsive *
- * ------- */
+/* ------------ *
+ *  Responsive  *
+ * ------------ */
 
 @mixin bp($breakpoint) {
   @if $breakpoint == "small" {

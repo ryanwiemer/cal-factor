@@ -1,6 +1,6 @@
-/* ------- *
- * Notifications *
- * ------- */
+/* --------------- *
+ *  Notifications  *
+ * --------------- */
 
 //Notification Topbar
 .notification {
@@ -35,7 +35,7 @@
 
 .notification--accepted {
   transform: translate3d(0, 0, 0);
-  .notification-message--accepted {
+  .notification__text--accepted {
     border-color: $accepted;
     opacity: 1;
     visibility: visible;
@@ -44,7 +44,7 @@
 
 .notification--missing {
   transform: translate3d(0, 0, 0);
-  .notification-message--missing {
+  .notification__text--missing {
     border-color: $missing;
     opacity: 1;
     visibility: visible;
@@ -53,15 +53,15 @@
 
 .notification--rejected {
   transform: translate3d(0, 0, 0);
-  .notification-message--rejected {
+  .notification__text--rejected {
     border-color: $rejected;
     opacity: 1;
     visibility: visible;
   }
 }
 
-//Notification Message Paragraph
-.notification-message {
+//Notification Text
+.notification__text {
   display: inline-block;
   position: absolute;
   height: 75px;
@@ -78,17 +78,6 @@
     height: 50px;
   }
 }
-
-//Cal Factor Result Styling
-em {
-  font-weight: bold;
-}
-
-//Emoijs
-.no-emoji .emoji-icon {
-  display: none;
-}
-
 
 // Hide Notification "X" Button
 .button--hide-notification {

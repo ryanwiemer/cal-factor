@@ -1,8 +1,7 @@
-/* ------- *
+/* ------------ *
  *  Typography  *
- * ------- */
+ * ------------ */
 
-//Font Families
 body {
 	font-family: arial, sans-serif;
 	font-size: 16px;
@@ -13,4 +12,9 @@ body {
 
 code {
 	font-family: Courier, 'New Courier', monospace;
+	line-height: 1.4;
+}
+
+em {
+  font-weight: bold;
 }
