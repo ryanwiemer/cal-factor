@@ -1,6 +1,6 @@
-/* ---------- *
- *  Variables *
- * ---------- */
+/* --------- *
+ * Variables *
+ * --------- */
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
  * http://cssreset.com
@@ -53,17 +53,17 @@ table {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* ------- *
-* Clearfix *
-* ------- */
+/* ---------- *
+ *  Clearfix  *
+ * ---------- */
 .calculator:after, .button-container:after {
   display: table;
   content: "";
   clear: both; }
 
-/* ------- *
- * Responsive *
- * ------- */
+/* ------------ *
+ *  Responsive  *
+ * ------------ */
 /* ------- *
  *  Main  *
  * ------- */
@@ -75,9 +75,9 @@ body {
   height: 100vh;
   background: #f5f5f5; }
 
-/* ------- *
+/* ------------ *
  *  Typography  *
- * ------- */
+ * ------------ */
 body {
   font-family: arial, sans-serif;
   font-size: 16px; }
@@ -86,11 +86,38 @@ body {
       font-size: 12px; } }
 
 code {
-  font-family: Courier, 'New Courier', monospace; }
+  font-family: Courier, 'New Courier', monospace;
+  line-height: 1.4; }
+
+em {
+  font-weight: bold; }
+
+/* -------- *
+ *  Titles  *
+ * -------- */
+h1, h2, h3, h4, h5 {
+  font-weight: bold; }
 
 /* ------- *
- * Calculator *
- * ------- */
+ *  Links  *
+ * --------*/
+a {
+  text-decoration: underline;
+  color: #101010;
+  transition: all .25s; }
+
+.no-touchevents a:hover {
+  opacity: .75; }
+
+/* ----------- *
+ *  Paragraphs *
+ * ----------- */
+.p {
+  line-height: 1.4; }
+
+/* ------------ *
+ *  Calculator  *
+ * ------------ */
 .calculator-container {
   text-align: center;
   height: 100vh;
@@ -111,8 +138,47 @@ code {
     height: 100%; }
 
 /* ------- *
- * Inputs  *
+ *  About  *
  * ------- */
+.about {
+  font-size: 1em;
+  margin: 0 auto;
+  padding: 2em 1em;
+  max-width: 600px; }
+  @media (min-width: 600px) {
+    .about {
+      font-size: 16px; } }
+
+.about h2 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1em 0 1em 0;
+  font-size: 2em; }
+
+.about h3 {
+  margin: 0 0 1em 0; }
+
+.about p {
+  margin-bottom: 2em; }
+
+.about code {
+  background: #f5f5f5;
+  padding: 1em 2em;
+  display: inline-block;
+  margin-bottom: 2em; }
+
+.about ul {
+  margin: 0 0 2em 0;
+  margin-left: 1em; }
+
+.about li {
+  line-height: 1.4;
+  list-style: disc;
+  margin-bottom: .5em; }
+
+/* -------- *
+ *  Inputs  *
+ * -------- */
 .input-container {
   float: left;
   margin: auto auto 1em auto;
@@ -148,9 +214,9 @@ textarea {
       width: auto;
       display: inline-block; } }
 
-/* ------- *
- * Buttons *
- * ------- */
+/* --------- *
+ *  Buttons  *
+ * --------- */
 .button-container {
   float: left;
   margin: auto;
@@ -197,9 +263,15 @@ textarea {
     .button--calculate {
       margin-left: 1em; } }
 
-/* ------- *
- * Notifications *
- * ------- */
+/* -------- *
+ *  Emojis  *
+ * -------- */
+.no-emoji .emoji-icon {
+  display: none; }
+
+/* --------------- *
+ *  Notifications  *
+ * --------------- */
 .notification {
   font-size: 16px;
   background: white;
@@ -228,26 +300,26 @@ textarea {
 
 .notification--accepted {
   transform: translate3d(0, 0, 0); }
-  .notification--accepted .notification-message--accepted {
+  .notification--accepted .notification__text--accepted {
     border-color: #9ecb75;
     opacity: 1;
     visibility: visible; }
 
 .notification--missing {
   transform: translate3d(0, 0, 0); }
-  .notification--missing .notification-message--missing {
+  .notification--missing .notification__text--missing {
     border-color: #ffc852;
     opacity: 1;
     visibility: visible; }
 
 .notification--rejected {
   transform: translate3d(0, 0, 0); }
-  .notification--rejected .notification-message--rejected {
+  .notification--rejected .notification__text--rejected {
     border-color: #de673d;
     opacity: 1;
     visibility: visible; }
 
-.notification-message {
+.notification__text {
   display: inline-block;
   position: absolute;
   height: 75px;
@@ -260,15 +332,9 @@ textarea {
   padding: 1.1em 2.5em;
   visibility: hidden; }
   @media (min-width: 470px) {
-    .notification-message {
+    .notification__text {
       padding: 1em 2em;
       height: 50px; } }
-
-em {
-  font-weight: bold; }
-
-.no-emoji .emoji-icon {
-  display: none; }
 
 .button--hide-notification {
   line-height: 1;
@@ -291,74 +357,23 @@ em {
   width: 20px;
   height: 20px; }
 
-/* ------- *
+/* ------------ *
  *  Navigation  *
- * ------- */
-.title {
+ * ------------ */
+.title--h1 {
   position: absolute;
   bottom: 1.5em;
   left: 1.5em;
-  font-weight: bold;
   width: 10px; }
   @media (min-width: 600px) {
-    .title {
+    .title--h1 {
       font-size: 16px; } }
 
-.button--about {
+.button--learn-more {
   position: absolute;
   bottom: 1.5em;
   right: 1.5em;
   text-decoration: underline; }
   @media (min-width: 600px) {
-    .button--about {
+    .button--learn-more {
       font-size: 16px; } }
-
-/* ------------ *
- *  About Page  *
- * ------------ */
-.about {
-  font-size: 1em;
-  margin: 0 auto;
-  padding: 2em 1em;
-  max-width: 600px; }
-  @media (min-width: 600px) {
-    .about {
-      font-size: 16px; } }
-
-.about h2 {
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  margin: 1em 0 1em 0;
-  font-size: 2em; }
-
-.about h3 {
-  font-weight: bold;
-  margin: 0 0 1em 0; }
-
-.about p {
-  line-height: 1.4;
-  margin-bottom: 2em; }
-
-code {
-  background: #f5f5f5;
-  padding: 1em 2em;
-  display: inline-block;
-  margin-bottom: 2em;
-  line-height: 1.4; }
-
-.about ul {
-  margin: 0 0 2em 0;
-  margin-left: 1em; }
-
-.about li {
-  line-height: 1.4;
-  list-style: disc;
-  margin-bottom: .5em; }
-
-.about a {
-  text-decoration: underline;
-  color: #101010; }
-
-.no-touchevents .about a:hover {
-  opacity: .75; }

@@ -1,0 +1,13 @@
+/* ------- *
+ *  Links  *
+ * --------*/
+
+a {
+   text-decoration: underline;
+   color: $base;
+   transition: all .25s;
+ }
+
+ .no-touchevents a:hover {
+   opacity: .75;
+ }
