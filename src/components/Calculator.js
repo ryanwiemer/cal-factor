@@ -13,6 +13,7 @@ class Calculator extends Component {
       }
   }
 
+  // Reset the input values via the Calculator componenet's state when a user clicks the "reset" button
   resetValues = () => {
     this.setState({
       blood: '',
@@ -22,14 +23,23 @@ class Calculator extends Component {
     });
   }
 
- hideNotification = () => {
+  // Hide the top bar notification when the user clicks on the "x" button
+  hideNotification = () => {
    this.setState({
      notificationClass: 'notification--hide'
    });
   }
 
-  calibrationEquation = (a,b) => {
+  // Settings for the input masks via react-text-mask and text-mask-addons
+  maskSettings = () => {
+    const numberMask = createNumberMask({
+      decimalSymbol: '.',
+      allowDecimal: true
+    });
+  }
 
+  // Calculator Logic
+  calibrationEquation = (a,b) => {
     const equationResult = a / b;
     const roundedResult = Math.round(equationResult * 100) / 100;
 
@@ -70,7 +80,6 @@ class Calculator extends Component {
         calFactor: ''
       });
     }
-
   }
 
   render() {
@@ -93,8 +102,8 @@ class Calculator extends Component {
       <div className="calculator">
           <div className="input-container">
             <MaskedTextInput
-              mask={[/[1-9]/,/[1-9]/,/[1-9]/,/[1-9]/]}
-              guide="false"
+              mask={[/[0-9]/,/[0-9]/,/[0-9]/,/[0-9]/]}
+              guide={false}
               className="input input--blood"
               name="blood"
               type="text"
@@ -103,7 +112,8 @@ class Calculator extends Component {
               onChange={(event) => this.setState({ blood: event.target.value })}
             />
             <MaskedTextInput
-              mask={[/[1-9]/,/[1-9]/,/[1-9]/,/[1-9]/]}
+              mask={[/[0-9]/,/[0-9]/,/[0-9]/,/[0-9]/]}
+              guide={false}
               className="input input--isig"
               name="isig"
               type="text"
