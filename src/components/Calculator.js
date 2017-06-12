@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MaskedTextInput from 'react-text-mask';
+import { createNumberMask } from 'text-mask-addons';
 
 class Calculator extends Component {
   constructor() {
@@ -90,21 +92,22 @@ class Calculator extends Component {
       <div className="calculator-container">
       <div className="calculator">
           <div className="input-container">
-            <input
+            <MaskedTextInput
+              mask={[/[1-9]/,/[1-9]/,/[1-9]/,/[1-9]/]}
+              guide="false"
               className="input input--blood"
               name="blood"
-              type="number"
+              type="text"
               placeholder="Blood Glucose"
-              step="1"
               value = {this.state.blood}
               onChange={(event) => this.setState({ blood: event.target.value })}
             />
-            <input
+            <MaskedTextInput
+              mask={[/[1-9]/,/[1-9]/,/[1-9]/,/[1-9]/]}
               className="input input--isig"
               name="isig"
-              type="number"
+              type="text"
               placeholder="ISIG"
-              step=".1"
               value = {this.state.isig}
               onChange={(event) => this.setState({ isig: event.target.value })}
             />
