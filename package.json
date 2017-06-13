@@ -11,9 +11,7 @@
     "type": "git",
     "url": "https://github.com/ryanwiemer/cal-factor"
   },
-  "contributors": [
-    "Ryan Wiemer <ryan@ryanwiemer.com> (http://ryanwiemer.com/)"
-  ],
+  "author": "Ryan Wiemer <ryan@ryanwiemer.com> (http://ryanwiemer.com/)",
   "scripts": {
     "build-css": "node-sass src/scss/style.scss src/style.css",
     "watch-css": "npm run build-css && node-sass -w src/scss/style.scss src/style.css",
