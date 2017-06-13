@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MaskedTextInput from 'react-text-mask';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 class Calculator extends Component {
   constructor() {
@@ -11,6 +13,7 @@ class Calculator extends Component {
       }
   }
 
+  // Reset the input values via the Calculator componenet's state when a user clicks the "reset" button
   resetValues = () => {
     this.setState({
       blood: '',
@@ -20,14 +23,15 @@ class Calculator extends Component {
     });
   }
 
- hideNotification = () => {
+  // Hide the top bar notification when the user clicks on the "x" button
+  hideNotification = () => {
    this.setState({
      notificationClass: 'notification--hide'
    });
   }
 
+  // Calculator Logic
   calibrationEquation = (a,b) => {
-
     const equationResult = a / b;
     const roundedResult = Math.round(equationResult * 100) / 100;
 
@@ -68,7 +72,6 @@ class Calculator extends Component {
         calFactor: ''
       });
     }
-
   }
 
   render() {
@@ -90,21 +93,28 @@ class Calculator extends Component {
       <div className="calculator-container">
       <div className="calculator">
           <div className="input-container">
-            <input
+            <MaskedTextInput
+              mask={[/[1-9]/, /[0-9]/, /[0-9]/]}
+              guide={false}
               className="input input--blood"
               name="blood"
-              type="number"
+              type="text"
               placeholder="Blood Glucose"
-              step="1"
               value = {this.state.blood}
               onChange={(event) => this.setState({ blood: event.target.value })}
             />
-            <input
+            <MaskedTextInput
+              mask={createNumberMask({
+                decimalSymbol: '.',
+                allowDecimal: true,
+                suffix: '',
+                prefix: '',
+              })}
+              guide={false}
               className="input input--isig"
               name="isig"
-              type="number"
+              type="text"
               placeholder="ISIG"
-              step=".1"
               value = {this.state.isig}
               onChange={(event) => this.setState({ isig: event.target.value })}
             />
