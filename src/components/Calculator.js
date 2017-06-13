@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MaskedTextInput from 'react-text-mask';
-import { createNumberMask } from 'text-mask-addons';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 class Calculator extends Component {
   constructor() {
@@ -28,14 +28,6 @@ class Calculator extends Component {
    this.setState({
      notificationClass: 'notification--hide'
    });
-  }
-
-  // Settings for the input masks via react-text-mask and text-mask-addons
-  maskSettings = () => {
-    const numberMask = createNumberMask({
-      decimalSymbol: '.',
-      allowDecimal: true
-    });
   }
 
   // Calculator Logic
@@ -102,7 +94,7 @@ class Calculator extends Component {
       <div className="calculator">
           <div className="input-container">
             <MaskedTextInput
-              mask={[/[0-9]/,/[0-9]/,/[0-9]/,/[0-9]/]}
+              mask={[/[1-9]/, /[0-9]/, /[0-9]/]}
               guide={false}
               className="input input--blood"
               name="blood"
@@ -112,7 +104,12 @@ class Calculator extends Component {
               onChange={(event) => this.setState({ blood: event.target.value })}
             />
             <MaskedTextInput
-              mask={[/[0-9]/,/[0-9]/,/[0-9]/,/[0-9]/]}
+              mask={createNumberMask({
+                decimalSymbol: '.',
+                allowDecimal: true,
+                suffix: '',
+                prefix: '',
+              })}
               guide={false}
               className="input input--isig"
               name="isig"
