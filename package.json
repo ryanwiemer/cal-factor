@@ -2,7 +2,7 @@
   "name": "cal-factor",
   "version": "1.0.2",
   "homepage": "https://cal-factor.com",
-  "description": "",
+  "description": "A simple web app to help calibrate Medtronic MiniMed insulin pumps and CGM sensors.",
   "license": "MIT",
   "repository": {
     "type": "git",
