@@ -60,6 +60,24 @@
   }
 }
 
+.notification--blood-high {
+  transform: translate3d(0, 0, 0);
+  .notification__text--blood-high {
+    border-color: $rejected;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.notification--blood-low {
+  transform: translate3d(0, 0, 0);
+  .notification__text--blood-low {
+    border-color: $rejected;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 //Notification Text
 .notification__text {
   display: inline-block;

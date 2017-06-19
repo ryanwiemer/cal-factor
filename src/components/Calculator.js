@@ -31,12 +31,13 @@ class Calculator extends Component {
   }
 
   // Calculator Logic
+  // a = Blood Gluce
+  // b = ISIG
   calibrationEquation = (a,b) => {
     const equationResult = a / b;
     const roundedResult = Math.round(equationResult * 100) / 100;
 
     if (equationResult >= 3 && equationResult <= 8 ) {
-      console.log(equationResult);
       this.setState({
         notificationClass: 'notification--accepted',
         calFactor: roundedResult
@@ -44,7 +45,6 @@ class Calculator extends Component {
     }
 
     if (equationResult < 3 ) {
-      console.log(equationResult);
       this.setState({
         notificationClass: 'notification--rejected',
         calFactor: roundedResult
@@ -52,9 +52,22 @@ class Calculator extends Component {
     }
 
     if (equationResult > 8 ) {
-      console.log(equationResult);
       this.setState({
         notificationClass: 'notification--rejected',
+        calFactor: roundedResult
+      });
+    }
+
+    if (a > 400 ) {
+      this.setState({
+        notificationClass: 'notification--blood-high',
+        calFactor: roundedResult
+      });
+    }
+
+    if (a < 40 ) {
+      this.setState({
+        notificationClass: 'notification--blood-low',
         calFactor: roundedResult
       });
     }
@@ -80,6 +93,8 @@ class Calculator extends Component {
       <div className={'notification ' + this.state.notificationClass}>
         <p className="notification__text notification__text--accepted"><em>Cal Factor = {this.state.calFactor}</em>. Calibration will likely be accepted. <span className="emoji-icon" role="img" aria-label="Happy emoji">😎</span></p>
         <p className="notification__text notification__text--rejected"><em>Cal Factor = {this.state.calFactor}</em>. Calibration will likely be rejected. <span className="emoji-icon" role="img" aria-label="Sad emoji">😞</span></p>
+        <p className="notification__text notification__text--blood-high">Blood glucose is too high. Treat hyperglycemia before calibrating.</p>
+        <p className="notification__text notification__text--blood-low">Blood glucose is too low. Treat hypoglycemia before calibrating.</p>
         <p className="notification__text notification__text--missing">Missing data. Please be sure to enter both values.</p>
         <button
           className="button button--hide-notification"

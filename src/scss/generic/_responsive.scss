@@ -4,7 +4,7 @@
 
 @mixin bp($breakpoint) {
   @if $breakpoint == "small" {
-    @media (min-width: 470px) {
+    @media (min-width: 540px) {
       @content;
     }
   }
