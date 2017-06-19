@@ -31,7 +31,7 @@ class Calculator extends Component {
   }
 
   // Calculator Logic
-  // a = Blood Gluce
+  // a = Blood Glucose
   // b = ISIG
   calibrationEquation = (a,b) => {
     const equationResult = a / b;
