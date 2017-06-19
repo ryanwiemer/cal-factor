@@ -1,6 +1,6 @@
 {
   "name": "cal-factor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple web app to help calibrate Medtronic MiniMed insulin pumps and CGM sensors.",
   "homepage": "https://cal-factor.com",
   "bugs": {
