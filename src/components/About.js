@@ -89,7 +89,7 @@ class About extends Component {
             </li>
             <li>
               Experiences will vary from person to person. Although this app
-              doesn't guarantee success hopefully it will help you avoid the
+              doesn&#39;t guarantee success hopefully it will help you avoid the
               unnecessary &quot;Cal Error&quot; warning.
             </li>
           </ul>
