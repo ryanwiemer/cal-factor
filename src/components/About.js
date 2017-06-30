@@ -26,7 +26,7 @@ class About extends Component {
             Medtronic MiniMed insulin pump users calibrate their CGM sensors.
             Please note that the medical equipment itself is obviously more
             sophisticated and takes into account additional variables including
-            your sensor's history. This app will help you calculate your
+            your sensor&#39;s history. This app will help you calculate your
             &quot;cal factor&quot; and warn you about the most obvious of
             errors. To report an issue or request a feature please visit the{' '}
             <a
@@ -56,7 +56,7 @@ class About extends Component {
             </li>
             <li>
               Cal factor should be between 3 - 8 or the calibration will likely
-              be rejected.{' '}
+              be rejected.
             </li>
             <li>
               Wait at least 15 minutes between calibrations.{' '}
@@ -108,7 +108,7 @@ class About extends Component {
           </p>
           <h3 className="title title--h3">Last Updated</h3>
           <p className="paragraph paragraph--about">
-            {' '}June, 2017.{' '}
+            June, 2017.{' '}
             <a
               href="https://github.com/ryanwiemer/cal-factor/releases"
               target="_blank"
