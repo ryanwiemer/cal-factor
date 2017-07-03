@@ -108,7 +108,7 @@ class About extends Component {
           </p>
           <h3 className="title title--h3">Last Updated</h3>
           <p className="paragraph paragraph--about">
-            June, 2017.{' '}
+            July, 2017.{' '}
             <a
               href="https://github.com/ryanwiemer/cal-factor/releases"
               target="_blank"
