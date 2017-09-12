@@ -18,9 +18,7 @@
     "start-js": "react-scripts start",
     "precommit": "lint-staged",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "npm run build-css && react-scripts build"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
