@@ -29,10 +29,12 @@
   transition: all .25s;
 }
 
-.no-touchevents .button:hover {
+.button:hover {
   cursor: pointer;
   opacity: .75;
 }
+
+@media (hover: none) {.button { opacity: 1; }}
 
 .button--reset {
   color: white;

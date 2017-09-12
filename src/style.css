@@ -106,8 +106,12 @@ a {
   color: #101010;
   transition: all .25s; }
 
-.no-touchevents a:hover {
+a:hover {
   opacity: .75; }
+
+@media (hover: none) {
+  a {
+    opacity: 1; } }
 
 /* ----------- *
  *  Paragraphs *
@@ -240,9 +244,13 @@ textarea {
   background: none;
   transition: all .25s; }
 
-.no-touchevents .button:hover {
+.button:hover {
   cursor: pointer;
   opacity: .75; }
+
+@media (hover: none) {
+  .button {
+    opacity: 1; } }
 
 .button--reset {
   color: white;

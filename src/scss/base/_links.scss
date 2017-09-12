@@ -8,6 +8,8 @@ a {
    transition: all .25s;
  }
 
- .no-touchevents a:hover {
+ a:hover {
    opacity: .75;
  }
+
+ @media (hover: none) {a { opacity: 1; }}
