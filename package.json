@@ -1,8 +1,8 @@
 {
   "name": "cal-factor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple web app to help calibrate Medtronic MiniMed insulin pumps and CGM sensors.",
-  "homepage": "https://cal-factor.com",
+  "homepage": "https://www.cal-factor.com",
   "bugs": {
     "url": "https://github.com/ryanwiemer/cal-factor/issues"
   },
@@ -20,28 +20,25 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-react-app": "^1.0.4",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.3.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "path": "^0.12.7",
+    "prettier": "^1.6.1",
+    "react-scripts": "1.0.13"
   },
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-text-mask": "^5.0.2",
-    "smoothscroll-polyfill": "^0.3.5",
+    "smoothscroll-polyfill": "^0.3.6",
     "text-mask-addons": "^3.5.1"
-  },
-  "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-react-app": "^1.0.4",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "^7.0.1",
-    "gh-pages": "^1.0.0",
-    "node-sass": "^4.5.3",
-    "npm-run-all": "^4.0.2",
-    "path": "^0.12.7",
-    "prettier": "^1.4.4",
-    "react-scripts": "1.0.10"
   }
 }
