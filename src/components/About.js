@@ -6,7 +6,7 @@ class About extends Component {
   scrollToAbout() {
     document.querySelector('.about').scrollIntoView({
       behavior: 'smooth',
-      block: "start"
+      block: 'start'
     });
   }
 
