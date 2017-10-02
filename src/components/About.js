@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+window.__forceSmoothScrollPolyfill__ = true;
 require('smoothscroll-polyfill').polyfill();
 
 class About extends Component {
   scrollToAbout() {
     document.querySelector('.about').scrollIntoView({
       behavior: 'smooth',
+      block: "start"
     });
   }
 
