@@ -16,7 +16,7 @@
     @include bp(medium) {
       width: auto;
       display: inline-block;
-   }
+    }
   }
 }
 
@@ -26,23 +26,28 @@
   outline: none;
   border: none;
   background: none;
-  transition: all .25s;
+  transition: opacity 0.25s;
 }
 
 .button:hover {
   cursor: pointer;
-  opacity: .75;
+  opacity: 0.75;
 }
 
-@media (hover: none) {.button { opacity: 1; }}
+@media (hover: none) {
+  .button {
+    opacity: 1;
+  }
+}
 
 .button--reset {
   color: white;
   border-radius: 2px;
-  padding: 1em;
+  padding: 0.5em;
   background: darken($tertiary, 15%);
   margin-bottom: 1em;
   @include bp(medium) {
+    padding: 1em;
     margin: 0 0 0 1em;
   }
 }
@@ -50,9 +55,10 @@
 .button--calculate {
   color: white;
   border-radius: 2px;
-  padding: 1em;
+  padding: 0.5em;
   background: $base;
   @include bp(medium) {
+    padding: 1em;
     margin-left: 1em;
   }
 }

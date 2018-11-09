@@ -4,7 +4,6 @@
 
 .input-container {
   float: left;
-  margin: auto auto 1em auto;
   width: 100%;
   @include bp(medium) {
     width: auto;
@@ -31,7 +30,7 @@ select {
   border-bottom: 1px solid $base;
   background: white;
   margin-bottom: 1em;
-  padding: 1em;
+  padding: 0.5em;
   color: $base;
   display: block;
   width: 100%;
@@ -41,6 +40,7 @@ select {
   }
   @include bp(medium) {
     margin: 0 0.5em;
+    padding: 1em;
     width: auto;
     display: inline-block;
   }

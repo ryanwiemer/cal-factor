@@ -2,12 +2,13 @@
  *  Main  *
  * ------- */
 
- body {
-   margin: 0;
-   padding: 0;
- }
+body {
+  margin: 0;
+  padding: 0;
+}
 
- .App {
+.App {
   height: 100vh;
+  min-height: 350px;
   background: $secondary;
- }
+}
