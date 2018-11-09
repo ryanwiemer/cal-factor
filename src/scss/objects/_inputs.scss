@@ -9,14 +9,18 @@
   @include bp(medium) {
     width: auto;
     margin: auto;
- }
+  }
 }
 
 select,
-input[type='text'],
-input[type='number'],
+input[type="text"],
+input[type="number"],
 textarea {
   font-size: inherit;
+}
+
+select {
+  cursor: pointer;
 }
 
 .input {
@@ -36,8 +40,8 @@ textarea {
     text-align: center;
   }
   @include bp(medium) {
-    margin: 0 .5em;
+    margin: 0 0.5em;
     width: auto;
     display: inline-block;
- }
+  }
 }

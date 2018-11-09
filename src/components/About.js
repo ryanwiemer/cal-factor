@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 window.__forceSmoothScrollPolyfill__ = true;
-require('smoothscroll-polyfill').polyfill();
+require("smoothscroll-polyfill").polyfill();
 
 class About extends Component {
   scrollToAbout() {
-    document.querySelector('.about').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+    document.querySelector(".about").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
   }
 
@@ -30,14 +30,15 @@ class About extends Component {
             sophisticated and takes into account additional variables including
             your sensor&#39;s history. This app will help you calculate your
             &quot;cal factor&quot; and warn you about the most obvious of
-            errors. To report an issue or request a feature please visit the{' '}
+            errors. To report an issue or request a feature please visit the{" "}
             <a
               href="https://github.com/ryanwiemer/cal-factor"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub repository
-            </a>.
+            </a>
+            .
           </p>
           <h3 className="title title--h3">Calibration Factor Equation</h3>
           <code>
@@ -46,8 +47,8 @@ class About extends Component {
           <h3 className="title title--h3">Useful Tips</h3>
           <ul className="ul ul--about">
             <li>
-              Blood glucose must be between 40 - 400 or you will not be able to
-              calibrate.{' '}
+              Blood glucose must be between 40 - 400 mg/dl or you will not be
+              able to calibrate.{" "}
               <a
                 href="https://www.medtronicdiabetes.com/customer-support/sensors-and-transmitters-support/calibration-sensor"
                 target="_blank"
@@ -61,7 +62,7 @@ class About extends Component {
               be rejected.
             </li>
             <li>
-              Wait at least 15 minutes between calibrations.{' '}
+              Wait at least 15 minutes between calibrations.{" "}
               <a
                 href="https://www.medtronicdiabetes.com/customer-support/sensors-and-transmitters-support/troubleshoot-sensor"
                 target="_blank"
@@ -72,7 +73,7 @@ class About extends Component {
             </li>
             <li>
               Do not calibrate if your blood glucose is rapidly rising or
-              lowering.{' '}
+              lowering.{" "}
               <a
                 href="https://www.medtronicdiabetes.com/customer-support/sensors-and-transmitters-support/calibration-sensor"
                 target="_blank"
@@ -98,7 +99,7 @@ class About extends Component {
           <h3 className="title title--h3">
             <span className="emoji-icon" role="img" aria-label="Warning emoji">
               ⚠️
-            </span>{' '}
+            </span>{" "}
             Disclaimer
           </h3>
           <p className="p p--about">
@@ -110,7 +111,7 @@ class About extends Component {
           </p>
           <h3 className="title title--h3">Last Updated</h3>
           <p className="paragraph paragraph--about">
-            July, 2017.{' '}
+            November, 2018.{" "}
             <a
               href="https://github.com/ryanwiemer/cal-factor/releases"
               target="_blank"

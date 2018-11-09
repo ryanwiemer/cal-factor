@@ -193,10 +193,13 @@ a:hover {
       margin: auto; } }
 
 select,
-input[type='text'],
-input[type='number'],
+input[type="text"],
+input[type="number"],
 textarea {
   font-size: inherit; }
+
+select {
+  cursor: pointer; }
 
 .input {
   appearance: none;
@@ -215,7 +218,7 @@ textarea {
     text-align: center; }
   @media (min-width: 600px) {
     .input {
-      margin: 0 .5em;
+      margin: 0 0.5em;
       width: auto;
       display: inline-block; } }
 
