@@ -13,7 +13,7 @@ class Calculator extends Component {
     };
   }
 
-  // Reset the input values via the Calculator componenet's state when a user clicks the "reset" button
+  // Reset the input values via the Calculator component's state when a user clicks the "reset" button
   resetValues = () => {
     this.setState({
       blood: '',
@@ -31,8 +31,29 @@ class Calculator extends Component {
   };
 
   // Calculator Logic
-  calibrationEquation = (blood, isig) => {
-    const equationResult = blood / isig;
+  calibrationEquation = (blood, units, isig) => {
+
+    if (blood.length === 0) {
+      this.setState({
+        notificationClass: 'notification--missing',
+      });
+      return;
+    }
+
+    if (isig.length === 0) {
+      this.setState({
+        notificationClass: 'notification--missing',
+      });
+      return;
+    }
+
+    let bloodMgdl =  parseInt(blood);
+    if (units === 'mmoll'){
+      //convert to mmol/l to mg/dl using standard formula found here:
+      // https://www.disabled-world.com/calculators-charts/bgl.php
+      bloodMgdl = bloodMgdl * 18;
+    }
+    const equationResult = bloodMgdl / isig;
     const roundedResult = Math.round(equationResult * 100) / 100;
 
     if (equationResult >= 3 && equationResult <= 8) {
@@ -56,29 +77,17 @@ class Calculator extends Component {
       });
     }
 
-    if (blood > 400) {
+    if (bloodMgdl > 400) {
       this.setState({
         notificationClass: 'notification--blood-high',
         calFactor: roundedResult,
       });
     }
 
-    if (blood < 40) {
+    if (bloodMgdl < 40) {
       this.setState({
         notificationClass: 'notification--blood-low',
         calFactor: roundedResult,
-      });
-    }
-
-    if (blood.length === 0) {
-      this.setState({
-        notificationClass: 'notification--missing',
-      });
-    }
-
-    if (isig.length === 0) {
-      this.setState({
-        notificationClass: 'notification--missing',
       });
     }
   };
@@ -120,8 +129,14 @@ class Calculator extends Component {
         <div className="calculator-container">
           <div className="calculator">
             <div className="input-container">
+
               <MaskedTextInput
-                mask={[/[1-9]/, /[0-9]/, /[0-9]/]}
+                mask={createNumberMask({
+                  decimalSymbol: '.',
+                  allowDecimal: true,
+                  suffix: '',
+                  prefix: '',
+                })}
                 guide={false}
                 className="input input--blood"
                 name="blood"
@@ -130,6 +145,13 @@ class Calculator extends Component {
                 value={this.state.blood}
                 onChange={event => this.setState({ blood: event.target.value })}
               />
+              <select
+                className="input"
+                onChange={event => this.setState({ units: event.target.value })}
+              >
+                <option id="dgml" value="mgdl">mg/dl</option>
+                <option id="mmoll" value="mmoll">mmol/l</option>
+              </select>
               <MaskedTextInput
                 mask={createNumberMask({
                   decimalSymbol: '.',
@@ -160,7 +182,7 @@ class Calculator extends Component {
                 className="button button--calculate"
                 name="calculate"
                 onClick={() =>
-                  this.calibrationEquation(this.state.blood, this.state.isig)}
+                  this.calibrationEquation(this.state.blood, this.state.units, this.state.isig)}
               >
                 Calculate
               </button>

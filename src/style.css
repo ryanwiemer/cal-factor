@@ -192,6 +192,7 @@ a:hover {
       width: auto;
       margin: auto; } }
 
+select,
 input[type='text'],
 input[type='number'],
 textarea {
