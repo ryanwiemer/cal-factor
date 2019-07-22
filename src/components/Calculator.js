@@ -140,7 +140,7 @@ class Calculator extends Component {
                 guide={false}
                 className="input input--blood"
                 name="blood"
-                type="text"
+                type="tel"
                 placeholder="Blood Glucose"
                 value={this.state.blood}
                 onChange={event => this.setState({ blood: event.target.value })}
@@ -162,7 +162,7 @@ class Calculator extends Component {
                 guide={false}
                 className="input input--isig"
                 name="isig"
-                type="text"
+                type="tel"
                 placeholder="ISIG"
                 value={this.state.isig}
                 onChange={event => this.setState({ isig: event.target.value })}
