@@ -25,7 +25,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.11",
-    "node-sass": "^8.0.0",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "prettier": "^2.7.1",
@@ -36,6 +35,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-text-mask": "^5.5.0",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
     "smoothscroll-polyfill": "^0.4.4",
     "text-mask-addons": "^3.8.0"
   },
